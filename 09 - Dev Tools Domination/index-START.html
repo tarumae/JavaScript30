@@ -18,28 +18,48 @@
     }
 
     // Regular
-
+    console.log('Hello');
     // Interpolated
-
+    console.log('Hello i am a %s string!', 'interpolated');
     // Styled
-
+    console.log('%c I am a great piece of text', 'font-size:50px; background: red;');
     // warning!
-
+    console.warn('Oh no. This is a warning');
     // Error :|
-
+    console.error(('This is an error.'));
     // Info
-
+    console.info('Crocodiles eat 3-4 people per year');
     // Testing
+    console.assert(1 === 1, 'That is wrong!') // The second parameter only runs if the assertion is false. In this case the error would never be displayed.
 
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('testclass'), 'No it does not!')
     // clearing
-
+    console.clear();
     // Viewing DOM Elements
-
+    console.dir(p);
     // Grouping together
-
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`) //Group groups it together and expands them automatically. Collapsed keeps them collapsed.
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`)
+    })
     // counting
-
+    console.count('Tom');
+    console.count('Tom');
+    console.count('Tom');
+    console.count('Tom'); // Essentially counts how many times it has ran. Could be useful for debugging loops.
     // timing
+    console.time('fetching data'); // Allows you to time fetch calls for example.  
+    fetch('https://api.github.com/users/tarumae')
+      .then(data => data.json())
+      .then (data => {
+        console.timeEnd('fetching data'); // Make sure to end the time function as well.
+        console.log(data);
+      })
 
   </script>
 </body>
